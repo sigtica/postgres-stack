@@ -61,9 +61,6 @@ This docker stack is comprised of two services:
 1. Postgres (named `postgresdb` in the stack)
 2. pgAdmin (named `pgadmin` in the stack)
 
-The Postgres service spins up a Postgres docker container complete with a root password, username and password, as well as global config files and persistent storage. It also has a setup script folder, which is for creating any tables in Postgres automatically upon booting up.
-
-The pgAdmin service spins up a pgAdmin docker container and is exposed at port 8080. This means you can navigate to port 8080 on your own computer to view the site. Please note that this service is only available on HTTP and does not have SSL certificates (HTTPS not available), as this is only used for testing purposes.
 
 
 ## Support 
