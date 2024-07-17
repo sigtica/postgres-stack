@@ -13,6 +13,7 @@ and the docker stack will spin up and pgAdmin should be available in the browser
 Once you access pgAdmin in the browser, you will need to manually add the database to pgAdmin. 
 
 Step 1. Go to http://localhost:8080 (or your IP address) and login with your user email and pass that you defined in the YML file.
+
 ![Step 1](images/pgadmin_step1.png)
 
 
