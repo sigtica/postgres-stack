@@ -1,0 +1,40 @@
+version: '3.8'
+services:
+  
+  postgresdb:
+    image: postgres:11.5
+    environment:
+      - POSTGRES_USER=sigtica
+      - POSTGRES_PASSWORD=sigtica
+      - POSTGRES_DB=sigtica_db_1
+      - PGDATA=/var/lib/postgresql/data
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 4G
+    ports:
+      - 5432:5432
+    volumes:
+       - ./postgresdb:/var/lib/postgresql/data          # persistent data storage: this is where the entire db is
+    networks:
+      - postgres_stack
+  
+
+  pgadmin:
+    image: dpage/pgadmin4:8.9
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=info@sigtica.com
+      - PGADMIN_DEFAULT_PASSWORD=sigtica
+    ports:
+      - 8080:80
+    depends_on:
+      - postgresdb
+    volumes:
+       - ./pgadmin:/root/.pgadmin
+    networks:
+      - postgres_stack
+
+
+networks:
+  postgres_stack:
